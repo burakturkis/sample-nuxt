@@ -1,0 +1,15 @@
+{
+  "logo": "Brand",
+  "language": {
+    "english": "English",
+    "turkish": "Türkçe"
+  },
+  "header": {
+    "menu": {
+      "homepage": "Homepage",
+      "contactUs": "Contact Us",
+      "login": "Login"
+    },
+    "language": "Language"
+  }
+}
