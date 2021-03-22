@@ -1,5 +1,5 @@
 <template>
-  <b-container fluid class="px-0">
+  <b-container fluid class="px-0 mainContainer">
     <Login :visible="visible.login" @close="(x) => (visible.login = x)" />
     <header>
       <b-navbar toggleable="lg" type="light">
@@ -140,30 +140,39 @@ html,
 body {
   color: $primary;
 }
-header {
-  background-color: $gray-1;
-  .nav-item {
-    transition: $globalTransition;
-    border-radius: 6px;
-    margin-right: 6px;
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  header {
+    background-color: $gray-1;
+    flex-grow: 0;
+    .nav-item {
+      transition: $globalTransition;
+      border-radius: 6px;
+      margin-right: 6px;
 
-    &.loggedUser {
-      ul {
-        li {
-          padding-left: 1rem;
+      &.loggedUser {
+        ul {
+          li {
+            padding-left: 1rem;
+          }
         }
       }
     }
   }
-}
-.content {
-  margin: 0 auto;
-  min-height: calc(100vh - 88px);
-  display: flex;
-  padding: 1rem;
-}
-footer {
-  padding: 0.25rem 1rem;
-  background-color: $gray-1;
+  .content {
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    padding: 1rem;
+    flex-grow: 1;
+    flex-shrink: 0;
+  }
+  footer {
+    padding: 0.25rem 1rem;
+    background-color: $gray-1;
+    flex-grow: 0;
+  }
 }
 </style>
