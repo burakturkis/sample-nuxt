@@ -40,10 +40,10 @@
                 <template v-else-if="menuItem.value === 'user'">
                   <b-nav-item-dropdown
                     :key="menuIndex"
-                    :text="getUser.name"
+                    :text="loggedUser.name"
                     right
                   >
-                    <b-dropdown-item>{{ getUser.email }}</b-dropdown-item>
+                    <b-dropdown-item>{{ loggedUser.email }}</b-dropdown-item>
                     <b-dropdown-item @click="logout">{{
                       $t('header.menu.logout')
                     }}</b-dropdown-item>
@@ -112,13 +112,13 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['getUser']),
+    ...mapGetters(['loggedUser']),
     activeLanguage() {
       return this.$i18n.locales.find((x) => x.code === this.$i18n.locale).name
     },
   },
   watch: {
-    getUser() {
+    loggedUser() {
       this.checkUser()
     },
   },

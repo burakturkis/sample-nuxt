@@ -19,7 +19,7 @@ export default {
     },
   },
   getters: {
-    getUser(state) {
+    loggedUser(state) {
       return state.user
     },
   },

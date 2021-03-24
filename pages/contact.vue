@@ -102,7 +102,7 @@
   </div>
 </template>
 <script>
-import { mapMutations } from 'vuex'
+import { mapMutations, mapState } from 'vuex'
 
 import { validationMixin } from 'vuelidate'
 import { required, minLength, email, numeric } from 'vuelidate/lib/validators'
@@ -145,6 +145,19 @@ export default {
     return {
       title: this.$t('header.menu.contactUs'),
     }
+  },
+  computed: {
+    ...mapState(['user']),
+  },
+  watch: {
+    user(newVal) {
+      this.form.name = newVal.name
+      this.form.email = newVal.email
+    },
+  },
+  beforeMount() {
+    this.form.name = this.user.name
+    this.form.email = this.user.email
   },
   validations: {
     form: {
